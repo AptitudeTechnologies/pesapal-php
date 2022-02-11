@@ -9,6 +9,7 @@ $dotenv->load(__DIR__.'/.env');
 $ConsumerKey=$_ENV['ConsumerKey'];
 $ConsumerSecret=$_ENV['ConsumerSecret'];
 
+
 //pesapal params
 $token = $params = NULL;
 
@@ -39,10 +40,22 @@ $last_name = $_POST['last_name'];
 $email = $_POST['email'];
 $phonenumber = '';//ONE of email or phonenumber is required
 
-$callback_url = 'http://www.yourdomain.com/redirect.php'; //redirect url, the page that will handle the response from pesapal.
-
-$post_xml = "<?xml version=\"1.0\" encoding=\"utf-8\"?><PesapalDirectOrderInfo xmlns:xsi=\"https://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"https://www.w3.org/2001/XMLSchema\" Amount=\"".$amount."\" Description=\"".$desc."\" Type=\"".$type."\" Reference=\"".$reference."\" FirstName=\"".$first_name."\" LastName=\"".$last_name."\" Email=\"".$email."\" PhoneNumber=\"".$phonenumber."\" xmlns=\"https://www.pesapal.com\" />";
+$callback_url = 'http://139.162.168.130/pesapal/callback.php'; //redirect url, the page that will handle the response from pesapal.
+$post_xml = '<?xml version="1.0" encoding="utf-8"?>';
+$post_xml .= '<PesapalDirectOrderInfo ';
+$post_xml .= 'xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ';
+$post_xml .= 'xmlns:xsd="http://www.w3.org/2001/XMLSchema" ';
+$post_xml .= 'Amount="'.$amount.'" ';
+$post_xml .= 'Description="'.$desc.'" ';
+$post_xml .= 'Type="'.$type.'" ';
+$post_xml .= 'Reference="'.$reference.'" ';
+$post_xml .= 'FirstName="'.$first_name.'" ';
+$post_xml .= 'LastName="'.$last_name.'" ';
+$post_xml .= 'Email="'.$email.'" ';
+$post_xml .= 'PhoneNumber="'.$phonenumber.'" ';
+$post_xml .= 'xmlns="http://www.pesapal.com" />';
 $post_xml = htmlentities($post_xml);
+
 
 $consumer = new OAuthConsumer($consumer_key, $consumer_secret);
 

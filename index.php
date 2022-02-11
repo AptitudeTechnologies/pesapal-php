@@ -1,15 +1,11 @@
 <?php
-include 'vendor\autoload.php';
-
-
-
-
+// include 'vendor\autoload.php';
 ?>
 <form action="Iframe.php" method="post">
 	<table>
 		<tr>
 			<td>Amount:</td>
-			<td><input type="text" name="amount" value="5000" />
+			<td><input type="text" name="amount" value="1" />
 			(in Kshs)
 			</td>
 		</tr>
@@ -21,7 +17,7 @@ include 'vendor\autoload.php';
 		</tr>
 		<tr>
 			<td>Description:</td>
-			<td><input type="text" name="description" value="Order Description" /></td>
+			<td><input type="text" name="description" value="Test Order" /></td>
 		</tr>
 		<tr>
 			<td>Reference:</td>
@@ -31,15 +27,15 @@ include 'vendor\autoload.php';
 		</tr>
 		<tr>
 			<td>Shopper's First Name:</td>
-			<td><input type="text" name="first_name" value="John" /></td>
+			<td><input type="text" name="first_name" value="Ian" /></td>
 		</tr>
 		<tr>
 			<td>Shopper's Last Name:</td>
-			<td><input type="text" name="last_name" value="Doe" /></td>
+			<td><input type="text" name="last_name" value="Surii" /></td>
 		</tr>
 		<tr>
 			<td>Shopper's Email Address:</td>
-			<td><input type="text" name="email" value="john@yahoo.com" /></td>
+			<td><input type="text" name="email" value="test@loribaridi.com" /></td>
 		</tr>
 		<tr>
 			<td colspan="2"><input type="submit" value="Make Payment" /></td>
