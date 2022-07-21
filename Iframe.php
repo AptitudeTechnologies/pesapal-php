@@ -29,7 +29,9 @@ $iframelink = 'https://www.pesapal.com/API/PostPesapalDirectOrderV4';//change to
                    //htt    ps://www.pesapal.com/API/PostPesapalDirectOrderV4 when you are ready to go live!
 
 //get form details
-$amount = $_POST['amount'];
+
+if(isset($_POST)){
+    $amount = $_POST['amount'];
 $amount = number_format($amount, 2);//format amount to 2 decimal places
 
 $desc = $_POST['description'];
@@ -66,7 +68,17 @@ $iframe_src->set_parameter("pesapal_request_data", $post_xml);
 $iframe_src->sign_request($signature_method, $consumer, $token);
 
 //display pesapal - iframe and pass iframe_src
-?>
-<iframe src="<?php echo $iframe_src;?>" width="100%" height="700px"  scrolling="no" frameBorder="0">
+
+
+$result['result'] ='<iframe src="'.$iframe_src.'" width="100%"height="700px"  scrolling="no" frameBorder="0">
 	<p>Browser unable to load iFrame</p>
-</iframe>
+</iframe>"';
+echo json_decode($result);
+}
+
+else{
+    $result ="No result";
+    echo json_decode($result);
+
+}
+?>
